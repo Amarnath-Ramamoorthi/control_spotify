@@ -22,6 +22,7 @@ show_commands()
     echo "   artist"
     echo "   album"
     echo "   status"
+    echo "   volume up / down"
 }
 
 if [ $# -lt 1 ]
@@ -33,9 +34,6 @@ fi
 volume_percent=5
 
 case $1 in
-    "launch")
-        
-        ;;
     "play")
         dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
         ;;
@@ -57,6 +55,18 @@ case $1 in
     "status")
         dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'|grep 'string "[^"]*"'|sed 's/.*"\(.*\)"[^"]*$/\1/'
         ;;
+    "volume")
+        case $2 in
+            "up")
+                amixer -D pulse set Master ${volume_percent}%+
+                # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Volume
+                ;;
+            "down")
+                amixer -D pulse set Master ${volume_percent}%-
+                ;;
+            *)
+                echo "choose up or down, does increase by 5%"
+                ;;
         esac
         ;;
     *)
