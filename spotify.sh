@@ -35,6 +35,14 @@ volume_percent=5
 
 case $1 in
     "play")
+        if [ "$(pidof spotify)" = "" ] 
+        then
+          echo "Launching spotify..."
+          sleep 2
+          nohup spotify &
+          # pid=$!
+          sleep 30
+        fi
         dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
         ;;
     "next")
@@ -59,7 +67,6 @@ case $1 in
         case $2 in
             "up")
                 amixer -D pulse set Master ${volume_percent}%+
-                # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Volume
                 ;;
             "down")
                 amixer -D pulse set Master ${volume_percent}%-
