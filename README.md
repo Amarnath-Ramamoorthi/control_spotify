@@ -1,4 +1,4 @@
-# Control Spotify using Shell script Linux
+# Control Spotify using Linux shell script
 
 ## Getting Started
 
@@ -19,7 +19,9 @@ $ sudo apt-get install amixer
 $ ./spotify.sh <user_commands>
 ```
 
-### Explanation
+play, next, prev, volume up, volume down, title, artist, album, status
+
+### How to Use
 
 Using command './spotify play' if spotify not running launches spotify and plays
 

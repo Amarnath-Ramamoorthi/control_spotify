@@ -4,13 +4,16 @@
 # Description:
 #   Control Spotify using this bash script
 #   Commands are simple play / pause, next, prev, title, artist, album, status
+#
+#
 # [1] Addded volume up / down actullay this is to control machine volume not spotify actually 
 # [2] play is used to control both play and pause
 # 
 # developed by AR
+# 
 # Refrenced from 
-# https://community.spotify.com/t5/Desktop-Linux-Windows-Web-Player/Conky-Spotify-quot-Now-Playing-quot-scripts/m-p/26825/highlight/true#M216
-# https://github.com/mgarratt/spotify-control 
+#   https://community.spotify.com/t5/Desktop-Linux-Windows-Web-Player/Conky-Spotify-quot-Now-Playing-quot-scripts/m-p/26825/highlight/true#M216
+#  
 
 show_commands()
 {
