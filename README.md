@@ -6,7 +6,7 @@ Control Spotify using simple very basic shell script, tested on Ubunutu 14.10
 
 ### Prerequisites
 
-You would require amixer to control the volume of the system
+You would require "amixer" to control the volume of the system
 
 ```
 $ sudo apt-get upgrade
@@ -23,7 +23,7 @@ play, next, prev, volume up, volume down, title, artist, album, status
 
 ### How to Use
 
-Using command './spotify play' if spotify not running launches spotify and plays
+Using command "./spotify play" if spotify not running launches spotify and plays
 
 ```
 $ ./spotify.sh play
